@@ -1,9 +1,8 @@
-9
-Alexei Peter_I
-Anna Peter_I
-Elizabeth Peter_I
-Peter_II Alexei
-Peter_III Anna
-Paul_I Peter_III
-Alexander_I Paul_I
-Nicholaus_I Paul_I
+10
+1 2 3 4 5
+YES
+2 4 6 8 10
+NO
+5
+YES
+HELP

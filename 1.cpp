@@ -2,6 +2,16 @@
 #include <vector>
 using namespace std;
 
+int strToInt(string str){
+	int res = 0;
+
+	for(int i = 0; i < str.length(); ++i){
+		int t = int(str[i]) - 48;
+		res = res * 10 + t;
+	}
+
+	return res;
+}
 
 vector<string> splitLine(string line){
 	line = line + " ";
@@ -12,7 +22,7 @@ vector<string> splitLine(string line){
 	for(int i = 0; i < line.length(); ++i){
 		if(line[i] == ' '){
 			len = i - pos;
-			res.push_back(line.substr(pos,len));
+			res.push_back(strToInt(line.substr(pos,len)));
 			pos = i + 1;
 		}
 	}
@@ -27,7 +37,7 @@ int main(){
 	string str;
 	getline(cin,str);
 
-	vector<string> r = splitLine(str); 
+	vector<string> r = f(str); 
 
 	for(int i = 0; i < r.size(); ++i){
 		cout << r[i] << endl;
