@@ -11,16 +11,13 @@ int main(){
     freopen("input.txt","r",stdin);
         
     string str,str2;
-    long long x;
-    set<long long> good,bad;
-    set<long long>::iterator it;
-    set<long long>::iterator it2;
-    
+    map<int,int>a;
+
     getline(cin,str); 
 
-    long long n = atol(str.c_str());
-
-    
+    int n = atoi(str.c_str());
+    int x;
+    int cnt = 0;
 
     while(getline(cin,str)){
         if(str == "HELP") break;
@@ -29,31 +26,20 @@ int main(){
         ss << str;
 
         while(ss >> x){
-            if(x < 0){
-                n = 0;
-                cout << 1/n;
-            }
-            
             if(str2 == "YES"){
-                     good.insert(x);  
-                }else{
-                     bad.insert(x); 
-                }
+                a[x]++;
+                cnt = max(cnt,a[x]);
+            }else{
+                a[x] = -1000000;
+            }
         }
     }
 
-    for(it = bad.begin(); it != bad.end(); ++it){
-        it2 = good.find(*it);
-        if(it2 != good.end()){
-            good.erase(it2);
+    for(int i = 1; i <= n; ++i){
+        if(a[i] == cnt){
+            cout << i << " ";
         }
     }
-
-
-    for(it = good.begin(); it != good.end(); ++it){
-          cout << *it << " ";
-    }
-
 
     return 0;
 }
